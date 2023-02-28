@@ -1,0 +1,183 @@
+Q1. Write a Python program to sort (ascending and descending) a dictionary by value.
+
+Program:
+
+
+dic={"company":"lamborghini","model":"aventador","color":"black","year":"2016"}
+print(dic)
+print(type(dic))
+sort1=sorted(dic.items(),key=lambda x:x[1])
+print("\nafter sorting in ascending order : ")
+print(sort1)
+sort2=sorted(dic.items(),key=lambda x:x[1],reverse=True)
+print("\nafter sorting in descending order : ")
+print(sort2)
+
+
+
+
+Q2. Write a Python program to add a key to existing dictionary.
+
+Program:
+
+d = {'a': 1, 'b': 2}
+print("\nbefore adding new key")
+print(d)
+d['c'] = 0
+print("\nafter adding new key")
+print(d)
+
+
+
+
+Q3. Write a Python program to merge two Python dictionaries.
+
+Program:
+
+dic1 = {'a':10,'b':20,'c':30}
+dic2 = {'d':40,'e':50,'f':60}
+dic1.update(dic2)
+print("\nafter merging two dictionaries")
+print(dic1)
+
+
+
+Q4. Write a Python program to sum all the items in a dictionary.
+
+Program:
+
+dict = {'a':100,'b':200,'c':300,'d':350}
+sum=0
+for i in dict.values():
+  sum=sum+i
+print("\nsum of values in the dictionary")
+print(sum)
+
+
+
+Q5. Write a Python program to map two lists into a dictionary.
+
+Program:
+
+list1=['company','model','color','year']
+list2=['lamborghini','aventador','black',2016]
+dict1=dict(zip(list1,list2))
+print("\nafter mapping two list into a dictionary")
+print(dict1)
+
+
+
+
+Q6. Write a Python program to sort a dictionary by key.
+
+Program:
+
+dict1 = {"company":"lamborghini","model":"aventador","color":"black","year":"2016"}
+print("\nbefore sorting")
+print(dict1)
+key = list(dict1.keys())
+key.sort()
+sorted_dict = {i: dict1[i] for i in key}
+print("\nafter sorting")
+print(sorted_dict)
+
+
+
+
+Q7. Write a Python program to get the maximum and minimum value in a dictionary.
+
+Program:
+
+
+dict1 = {'x':500,'y':587,'z': 560}
+key_max = max(dict1.keys(), key=(lambda k: dict1[k]))
+key_min = min(dict1.keys(), key=(lambda k: dict1[k]))
+print('maximum value in the dictionary : ',dict1[key_max])
+print('minimum value in the dictionary : ',dict1[key_min])
+
+
+
+
+Q8. Write a Python program to remove duplicates from Dictionary.
+
+Program:
+
+dict1 = {'name':'john','class':'fymba','roll':82,'marks':82}
+result = {}
+for key,value in dict1.items():
+    if value not in result.values():
+        result[key] = value
+print("\nafter removing duplicates")
+print(result)
+
+
+
+
+Q9. Write a Python program to find the highest 3 values in a dictionary.
+
+Program:
+
+dict1= {'A':673,'B':253,'C':452,'D':566,'E':102,'F':169}
+print(dict1)
+print("highest 3 values:")
+x=list(dict1.values())
+d=dict()
+x.sort(reverse=True)
+x=x[:3]
+for i in x:
+    for j in dict1.keys():
+        if(dict1[j]==i):
+            print(str(j)+" : "+str(dict1[j]))
+
+
+
+Q10. Write a Python program to check multiple keys exists in a dictionary.
+
+Program:
+
+student = {'name': 'john','roll': 23,'city':'pune'}
+print(student.keys() >= {'roll','name'})
+print(student.keys() >= {'city','john'})
+print(student.keys() >= {'city','pune'})
+
+
+
+
+Q11. Write a Python program to count number of items in a dictionary value that is a list.
+
+Program:
+
+dict = {'marks1':[78,36,89,48],'marks2':[84,73]}
+cnt = sum(map(len,dict.values()))
+print("\ntotal nos of items in the dictionary that are list")
+print(cnt)
+
+
+
+
+
+Q12. Write a Python program to create a dictionary from two lists without losing duplicate values.
+
+Program:
+
+list1 = ['a','b','c','d']
+list2 = [43, 128, 987,987]
+dict1 = dict(zip(list1,list2))
+print("dictionary from two lists : ",dict1)
+
+
+
+
+Q13. Write a Python program to replace dictionary values with their average.
+
+Program:
+
+dict1 = {'a':[1.0, 2.0],'b':[3.0, 4.0],'c':[5.0, 6.0]}
+dict1 = {k:float(sum(v))/len(v) for k, v in dict1.items()}
+print("\ndictionary after replacing their valued with average")
+print(dict1)
+
+
+
+
+

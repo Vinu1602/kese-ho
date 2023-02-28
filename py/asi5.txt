@@ -1,0 +1,239 @@
+Q2. Write a Python program to add an item in a tuple..
+
+Program:
+
+
+tup1=("hi","python",12.78,[22,33,44])
+print("\nbefore adding a value into a tuple : ")
+print(tup1)
+a = (8,16.21)
+tup2=tup1+a
+print("\nafter adding a value into a tuple : ")
+print(tup2)
+
+
+
+
+Q3. Write a Python program to convert a tuple to a string..
+
+Program:
+
+tup1=("h","e","l","l","o")
+print(tup1)
+print(type(tup1))
+stri = ' '
+for i in tup1:
+  stri = stri + i
+print("after converting tuple to string : ")
+print(stri)
+
+
+
+
+Q4. Write a Python program to find the repeated items of a tuple.
+
+Program:
+
+
+tuplex =(2,4,5,6,2,3,4,4,7)
+print(tuplex)
+count = tuplex.count(4)
+print(count)
+
+
+
+
+Q5. Write a Python program to check whether an element exists within a tuple.
+
+Program:
+
+tup1=("h","e","l","l","o","w","o","r","l","d")
+print(tup1)
+n=input("enter item to check if it exists or not in the tuple : ")
+if n in tup1:
+  print("it is present")
+else:
+  print("it is not present")
+
+
+
+
+Q6. Write a Python program to convert a list to a tuple.
+
+Program:
+
+list1=["hello",1,'a',3.14]
+print("list : ")
+print(list1)
+tup1=tuple(list1)
+print("tuple : ")
+print(tup1)
+
+
+
+
+Q7. Write a Python program to remove an item from a tuple.
+
+Program:
+
+tup1=("hello","world","how","are","you")
+print(tup1)
+list1=list(tup1)
+n = input("enter a item to be removed : ")
+list1.remove(n)
+tup2=tuple(list1)
+print("\nafter removing item : ")
+print(tup2)
+
+
+
+
+
+Q9. Write a Python program to find the index of an item of a tuple.
+
+Program:
+
+tup1=(1,2,3,46,7,8,6,4,9)
+index1 = tup1.index(46)
+print("index of 46 : ",index1)
+index2 = tup1.index(4)
+print("index of 4 : ",index2)
+
+
+
+
+Q11. Write a Python program to convert a tuple to a dictionary.
+
+Program:
+
+tup1=((1,"hello"),(2,"world"),(3,"hii"))
+print(tup1)
+dic = dict((x,y) for x, y in tup1)
+print("dictionary of tuple : ",dic)
+
+
+
+
+Q12. Write a Python program to unzip a list of tuples into individual lists.
+
+Program:
+
+list1=[(1,2),("hi","hello"),(1.2,2.3)]
+print(list1)
+list2 = []
+list3=[]
+for (x,y) in list1:
+    list2.append(x)
+    list3.append(y)
+print(list2)
+print(list3)
+
+
+
+
+Q15. Write a Python program to add member(s) in a set.
+
+Program:
+
+se = {1,2,3}
+se.update([4,5,6])
+print(se)
+
+
+
+Q16. Write a Python program to remove item(s) from set.
+
+Program:
+
+se = {1,2,3,4,5,6}
+print(type(se))
+se.remove(3)
+print(se)
+
+
+
+
+Q17. Write a Python program to create an intersection of sets.
+
+Program:
+
+set1={1,2,3,4,5,6}
+set2={3,4,5,6,7,8}
+print(set1&set2)
+
+
+
+
+Q18. Write a Python program to create a union of sets.
+
+Program:
+
+set1={1,2,3,4,5,6}
+set2={3,4,5,6,7,8}
+print(set1|set2)
+
+
+
+
+Q20. Write a Python program to create a symmetric difference..
+
+Program:
+
+set1={1,2,3,4,5,6}
+set2={3,4,5,6,7,8}
+x=set1.symmetric_difference(set2)
+print(x)
+
+
+
+Q21. Write a Python program to check if a set is a subset of another set.
+
+Program:
+
+set1 = {1,2,3,4}
+set2 = {3,4,5,1,2,3}
+print("if it is superset of another set : ",set1.issubset(set2))
+
+
+
+
+
+Q22. Write a Python program to create frozensets. Write a Python program to find maximum and the minimum value in a set.
+
+Program:
+
+set1 = {1,2,3,4,5}
+set2 = frozenset(set1)
+print(set2)
+print(type(set2))
+print("\nmaximum value in the set : ",max(set1))
+print("\nminimum value in the set : ",min(set1))
+
+
+
+
+Q23. Write a Python program to check if a given set is superset of itself and superset of another given set.
+
+Program:
+
+set1 = {1,2,3,4}
+set2 = {3,4,5,1,2,3}
+print("if it is superset of itself : ",set1.issubset(set1))
+print("if it is superset of another set : ",set1.issubset(set2))
+
+
+
+
+Q24. Write a Python program to remove the intersection of a 2nd set from the 1st set.
+
+Program:
+
+set1 = {1,2,3,4,5}
+set2 = {4,5,6,7,8}
+print("set 1 : ",set1)
+print("set 2 : ",set2)
+print("\nremoving the intersection of a 2nd set from the 1st set :")
+for i in set1&set2:
+    set1.remove(i)
+print("set 1 : ",set1)
+print("set 2 : ",set2)

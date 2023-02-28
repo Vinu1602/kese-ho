@@ -1,0 +1,108 @@
+Q5. Write a Python Program to Check Prime Number.
+
+Program:
+
+n = int(input("enter a number : "))
+flag = 0
+for i in range(2,n):
+  if n%i==0:
+    flag = 1
+    break
+if flag:
+  print(n,"is not a prime number")
+else:
+  print(n,"is a prime number")
+
+
+
+Q6. Write a Python Program to Print all Prime Numbers in an Interval
+
+Program:
+
+lower = int(input("enter the lower range : "))  
+upper = int(input("enter the upper range : "))
+print ("The Prime Numbers in the range are: ")  
+for number in range (lower,upper + 1):  
+    if number>1:  
+        for i in range (2, number):  
+            if (number % i) == 0:  
+                break  
+        else:  
+            print (number)
+
+
+
+Q9. Write a Python Program to Print the Fibonacci sequence
+
+Program:
+
+n = int(input("enter range upto which you want fibonacci series : "))
+a,b,count = 0,1,0
+if n==1:
+  print(n)
+elif n>1:
+  while(count<n):
+    print(a)
+    temp=a+b
+    a=b
+    b=temp
+    count = count + 1
+
+
+
+
+Q10. Write a Python Program to Check Armstrong Number
+
+Program:
+
+
+n = int(input("enter a number : "))
+sum = 0
+temp = n
+while temp > 0:
+  d = temp%10
+  sum = sum + d**3
+  temp = temp//10
+if n == sum:
+  print("entered number is armstrong")
+else:
+  print("entered number is not armstrong")
+
+
+
+
+Q11. Write a Python Program to Find Armstrong Number in an Interval.
+
+Program:
+
+lower = 100
+upper = 2000
+for num in range(lower, upper + 1):
+   order = len(str(num))
+   sum = 0
+   temp = num
+   while temp > 0:
+       d = temp % 10
+       sum += d ** order
+       temp //= 10
+   if num == sum:
+       print(num)
+
+
+
+Q12. Write a Python Program to Find the Sum of Natural Numbers
+
+Program:
+
+
+n = int(input("enter a number : "))
+sum=0
+while(n>0):
+  sum=sum+n
+  n=n-1
+print("sum is",sum)
+
+
+
+
+

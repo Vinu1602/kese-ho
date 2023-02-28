@@ -1,0 +1,245 @@
+Write a program to implement I/O operations on characters. I/O operations includes inputting a string, Calculating length of the string, Storing the string in a file, fetching the stored characters from it, etc.
+Program :-
+#include<iostream>
+#include<fstream>
+#include<string.h>
+using namespace std;
+
+int main()
+{
+    ifstream fs;
+    ofstream ofs;
+    char ch[50],read;
+    system("clear");
+    
+    ofs.open("demo.txt",ios::app);
+    if(!ofs)
+    {
+        cout<<"Error opening file!";
+        exit(1);
+    }
+    cout<<"Enter string to be stored in the file : ";
+    gets(ch);
+    ofs<<ch;
+    ofs.close();
+    cout<<"\n Length of the string is : "<<strlen(ch);
+    cout<<"\n The data stored in the file is : ";
+    fs.open("demo.txt",ios::in);
+    if(!fs)
+    {
+        cout<<"Error opening file!";
+        exit(1);
+    }
+    while(!fs.eof())
+    {
+        fs>>noskipws>>read;
+        cout<<read;
+    }
+    return 0;
+}
+
+
+
+
+
+Write a program to copy the contents of one file to another. 
+Program :-
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	ifstream fs;
+	ofstream ofs;
+	string str;
+	char source[50], desti[50];
+
+	cout<<"Enter Source File with Extension : ";
+	cin>>source;
+	fs.open(source);
+	if (!fs)
+	{
+		cout<<"Error in Opening Source File!";
+		exit(1);
+	}
+	
+	cout<<"Enter Destination File with Extension : ";
+	cin>>desti;
+	ofs.open(desti);
+	if (!ofs)
+	{
+		cout<<"Error in Opening Destination File!";
+		fs.close();
+		exit(2);
+	}
+	if (fs && ofs)
+	{
+		while (getline(fs, str))
+		{
+			ofs << str << "\n";
+		}
+
+		cout<<"\n Source File Date Successfully Copied to Destination File!";
+
+	}
+	else
+	{
+		cout<<"Error opening the file!";
+	}
+
+	fs.close();
+	ofs.close();
+}
+
+
+
+
+
+Write a program to maintain a elementary database of employees using files.
+Program :-
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main()
+{
+    ifstream fs;
+    ofstream ofs;
+    string name,desig;
+    int eid;
+    char ch = 'y';
+    char read;
+    
+    ofs.open("emp.txt",ios::app);
+    if (!ofs)
+	{
+		cout << "Error in Opening Employee Database File!";
+		exit(1);
+	}
+    
+    while(ch == 'y')
+    {
+        cout<<"\n Enter employee id : ";
+        cin>>eid;
+        cout<<"\n Enter employee name : ";
+        cin>>name;
+        cout<<"\n Enter employee designation : ";
+        cin>>desig;
+        
+        ofs<<"\n Employee id : "<<eid;
+        ofs<<"\n Employee name : "<<name;
+        ofs<<"\n Employee designation : "<<desig;
+        ofs<<"\n";
+        
+        cout<<"\n Data stored successfully!";
+        cout<<"\n Enter another record?(y/n) : ";
+        cin>>ch;
+    }
+    
+    fs.open("emp.txt",ios::in);
+    if (!fs)
+    {
+		cout << "Error in Opening File to display data!";
+		exit(1);
+	}
+
+	while(!fs.eof())
+	{
+	    fs>>noskipws>>read;
+	    cout<<read;
+	}
+}
+
+
+
+
+
+
+
+Write a program for reading and writing data to and from the file using command line arguments.
+Program :-
+#include<fstream>
+#include<iostream>
+using namespace std;
+ 
+int main ( int argc, char *argv[] )
+{
+    char ch[50];
+    ofstream ofs;
+    system("clear");
+    ofs.open(argv[1]);
+    if(!ofs)
+    {
+        cout<<"\n Could not open file";
+        exit(1);
+    }
+    cout<<"\n Enter string to be written into the file : ";
+    gets(ch);
+    ofs<<ch;
+    ofs.close();
+    if ( argc != 2 ) 
+    cout<<"usage: "<< argv[0] <<" <filename>\n";
+    else 
+    {
+        ifstream fs(argv[1]);
+        if (!fs)
+        {
+            cout<<"Could not open file\n";
+            exit(1);
+        }
+        else 
+        {
+            cout<<"\n The data in file is : ";
+            char x;
+            while (fs.get(x))
+                cout<< x;
+        }
+    }
+}
+
+
+
+
+
+
+Write a function in C++ to count and display the number of lines not starting with alphabet 'A' present in a text file "STORY.TXT".
+Program :-
+#include<iostream>
+#include<fstream>
+using namespace std;
+int main()
+{
+    ifstream fs;
+    char str[100],read;
+    int count=0;
+    int count1=0;
+    
+    cout<<"\n The content of the file is : \n";
+    fs.open("Story.txt",ios::in);
+    if(!fs)
+    {
+        cout<<"\n Error while opening the file!";
+        exit(1);
+    }
+    while(!fs.eof())
+    {
+        fs>>noskipws>>read;
+        cout<<read;
+    }
+    fs.close();
+    fs.open("Story.txt");
+    while(!fs.eof())
+    {
+        fs.getline(str,100);
+        if(str[0]!='A' || str[0]!='a' && str[1]!=' ')
+        {
+            count++;
+        }
+    }
+    cout<<"\nThe number of lines not starting with 'A' are:"<<count;
+    fs.close();
+    return 0;
+}
+
+

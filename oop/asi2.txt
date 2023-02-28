@@ -1,0 +1,281 @@
+Q2. Write a C++ program to make arithmetic calculator using inline function
+
+Program:
+#include<iostream.h>
+#include<conio.h>
+using namespace std;
+class Calculator
+{
+    int n1;
+    int n2;
+    int n3;
+    public:
+    void getdata()
+    {
+        cout<<"\nenter first number : ";
+        cin>>n1;
+        cout<<"\nenter second number : ";
+        cin>>n2;
+    }
+    void addition()
+    {
+        n3 = n1 + n2;
+        cout<<"\n"<<n3;
+    }
+    void subtraction()
+    {
+        if(n1>n2)
+        {
+            n3 = n1 - n2;
+        }
+        else
+        {
+            n3 = n2 - n1;
+        }
+        cout<<"\n"<<n3;
+    }
+    void multiplication()
+    {
+        n3 = n1 * n2;
+        cout<<"\n"<<n3;
+    }
+    void division()
+    {
+        float(n3) = float(n1) / float(n2);
+        cout<<"\n"<<n3;
+    }
+};
+int main()
+{
+     clrscr();
+    Calculator c;
+    int ch;
+    c.getdata();
+    cout<<"1.Addition"<<endl;
+    cout<<"2.Subtraction"<<endl;
+    cout<<"3.Multiplication"<<endl;
+    cout<<"4.Division"<<endl;
+    cout<<"\nenter your choice : ";
+    cin>>ch;
+    switch(ch)
+    {
+        case 1 : c.addition();
+        break;
+        case 2 : c.subtraction();
+        break;
+        case 3 : c.multiplication();
+        break;
+        case 4 : c.division();
+        break;
+        default : cout<<"\ninvalid choice";
+    }
+    getch();
+    return 0;
+}
+
+
+
+
+Q3. Write a program to find largest among given 3 numbers using inline function.
+
+Program:
+#include<iostream.h>
+#include<conio.h>
+using namespace std;
+class Greatest
+{
+    int a,b,c;
+    public:
+    void getdata()
+    {
+        cout<<"\nenter first number : ";
+        cin>>a;
+        cout<<"\nenter second number : ";
+        cin>>b;
+        cout<<"\nenter third number : ";
+        cin>>c;
+    }
+    void putdata()
+    {
+        if((a>b)&&(a>c))
+        {
+            cout<<a<<" is greatest";
+        }
+        else if((b>a)&&(b>c))
+        {
+            cout<<b<<" is greatest";
+        }
+        else if((c>a)&&(c>b))
+        {
+            cout<<c<<" is greatest";
+        }
+        else if((a==b)&&(a==c))
+        {
+            cout<<"\nall three numbers are equal";
+        }
+        else
+        {
+            cout<<"\nno greatest value present";
+        }
+    }   
+};
+int main()
+{
+    clrscr();
+    Greatest g;
+    g.getdata();
+    g.putdata();
+    getch();
+    return 0;
+}
+
+
+
+
+
+Q5.Create a class distance which accept the distances in feet & inches from the user & display the sum of two distances in feet & inch. [ use object as function argument, Write the function inside the class ] Modify above program to return the distance as an object of same class.
+
+Program:
+#include<iostream.h>
+#include<conio.h>
+using namespace std;
+class Distance
+{   float feet,inch;
+    public:
+    void getdata(float n1, float n2)
+    {
+        feet = n1;
+        inch = n2;
+    }
+    Distance sum(Distance, Distance);
+    void show(Distance);
+};
+Distance Distance :: sum(Distance d1, Distance d2)
+{
+    Distance d3;
+    d3.feet = d1.feet+d2.feet;
+    d3.inch = d1.inch+d2.inch;
+    if(d3.inch > 12)
+    {
+        float extra = d3.inch / 12;
+        d3.feet += extra;
+        d3.inch -= (extra * 12);
+    }
+    return d3;
+}
+void Distance :: show(Distance d4)
+{
+    cout<<d4.feet<<" + "<<d4.inch<<"\n";
+}
+int main()
+{
+     clrscr();
+    Distance a,b,c,d;
+    a.getdata(12.3,34);
+    b.getdata(7,6.7);
+    c = d.sum(a,b);
+    cout<<"a = ";
+    a.show(a);
+    cout<<"b = ";
+    b.show(b);
+    cout<<"c = ";
+    c.show(c);
+    getch();
+    return 0;
+}
+
+
+
+
+Q6. Write a C++ program to concatenate two strings by showing the use of dynamic constructor.
+
+Program:
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+using namespace std;
+class String
+{
+    char *name;
+    int length;
+    public:
+    String()
+    {
+        length=0;
+        name=new char[length+1];        
+    }
+    String(char *s)
+    {
+        length=strlen(s);
+        name=new char[length+1];
+        strcpy(name,s);
+    }
+    void display()
+    {
+        cout<<"\n  "<<name;
+    }
+    void join(String &a,String &b);
+};
+void String::join(String &a,String &b)
+{
+    length=a.length+b.length;
+    delete name;
+    name=new char[length+1];
+    strcpy(name,a.name);
+    strcat(name,b.name);
+};
+int main()
+{
+    clrscr();
+    String name1(" Bhavik");
+    String name2(" Jain");
+    String s1;
+    s1.join(name1,name2);
+    name1.display();
+    name2.display();
+    s1.display();
+    getch();
+    return 0;
+}
+
+
+
+
+
+
+Q7. Write a C++ program to solve Quadratic Equation using constructor.
+
+Program:
+#include <iostream.h>
+#include<conio.h>
+#include <math.h>
+#include <iomanip.h>
+using namespace std;
+int main()
+{
+    clrscr();
+    double a,b,x1,x2,c,D;
+    {
+        cout<<"Enter values of a, b and c for the equation :";
+        cin>>a>>b>>c;
+        D=(b*b)-(4*a*c);
+        if(D<0)
+        {
+            cout<<"Roots are not real\n";
+        }
+        else
+        {
+            x1=((-b+sqrt(D))/(2*a)); x2=((-b-sqrt(D))/(2*a));
+            cout<<fixed;
+            cout<<"Roots of equation are : "<<setprecision(2)<<x1<<" and        "         
+                       <<setprecision(2)<<x2<<endl<<endl;
+        }
+    }
+    getch();
+    return 0;
+
+}
+
+
+
+

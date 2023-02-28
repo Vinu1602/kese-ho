@@ -1,0 +1,230 @@
+Q1. Write a Python Program to Display Powers of 2 Using Anonymous Function.
+
+Program:
+
+n = 11
+result = list(map(lambda x: 2 ** x, range(n)))
+for i in range(n):
+   print(i,"^ 2","=",result[i])
+
+
+
+
+Q3. Write a Python Program to Convert Decimal to Binary, Octal and Hexadecimal.
+
+Program:
+
+n1=int(input("\nenter a decimal number : "))
+b = bin(n1)
+o = oct(n1)
+h = hex(n1)
+print("binary of ",n1,"is",b)
+print("octal of ",n1,"is",0)
+print("hexadecimal of ",n1,"is",h)
+
+
+
+
+
+
+
+Q4. Write a Python Program to Find ASCII Value of Character.
+
+Program:
+
+chr=input("\nenter a character : ")
+asc = ord(chr)
+print("ascii value of ",chr,"is ",asc)
+
+
+
+
+
+
+
+Q5. Write a Python Program to Find HCF or GCD.
+
+Program:
+
+n1=int(input("\nenter first number : "))
+n2=int(input("\nenter second number : "))
+if n1>n2:
+  smaller=n2
+else:
+  smaller=n1
+for i in range(1,smaller+1):
+  if((n1%i==0)and(n2%i==0)):
+    if((n1%i==0)and(n2%i==0)):
+      hcf=i
+print("\nthe hcf of two entered numbers : ",hcf)
+
+
+
+
+
+
+Q6. Write a Python Program to Find LCM.
+
+Program:
+
+n1=int(input("\nenter first number : "))
+n2=int(input("\nenter second number : "))
+if n1>n2:
+  greater=n1
+else:
+  greater=n2
+while(True):
+       if((greater % n1 == 0) and (greater % n2 == 0)):
+           lcm = greater
+           break
+       greater += 1
+print("\nthe lcm of two entered numbers : ",lcm)
+
+
+
+
+
+
+Q7. Write a Python Program to Find the Factors of a Number.
+
+Program:
+
+n1=int(input("\nenter first number : "))
+print("the factors of",n1,"are : ")
+for i in range(1,n1+1):
+  if n1%i==0:
+    print(i)
+
+
+
+
+
+
+Q8. Write a Python Program to Make a Simple Calculator.
+
+Program:
+
+def add(x, y):
+    return x + y
+def subtract(x, y):
+    return x - y
+def multiply(x, y):
+    return x * y
+def divide(x, y):
+    return x / y
+print("1.Add")
+print("2.Subtract")
+print("3.Multiply")
+print("4.Divide")
+while True:
+    choice = input("enter choice : ")
+    if choice in ('1', '2', '3', '4'):
+        try:
+            num1 = float(input("enter first number : "))
+            num2 = float(input("enter second number : "))
+        except ValueError:
+            print("invalid input")
+            continue
+        if choice == '1':
+            print(num1, "+", num2, "=", add(num1, num2))
+        elif choice == '2':
+            print(num1, "-", num2, "=", subtract(num1, num2))
+        elif choice == '3':
+            print(num1, "*", num2, "=", multiply(num1, num2))
+        elif choice == '4':
+            print(num1, "/", num2, "=", divide(num1, num2))
+    else:
+        print("invalid input")
+
+
+
+
+
+Q9. Write a Python Program to Shuffle Deck of Cards.
+
+Program:
+
+import itertools, random
+deck = list(itertools.product(range(1,14),['Spade','Heart','Diamond','Club']))
+random.shuffle(deck)
+print("you got:")
+for i in range(5):
+   print(deck[i][0], "of", deck[i][1])
+
+
+
+
+Q10. Write a Python Program to Display Calendar.
+
+Program:
+
+import calendar
+yy=int(input("enter a year : "))
+mm=int(input("enter a month number : "))
+print(calendar.month(yy,mm))
+
+
+
+
+
+Q11. Write a Python Program to Display Fibonacci Sequence Using Recursion.
+
+Program:
+
+def fibo(n):
+   if n <= 1:
+       return n
+   else:
+       return(fibo(n-1) + fibo(n-2))
+nterms = 10
+print("fibonacci series :")
+for i in range(nterms):
+  print(fibo(i))
+
+
+
+
+
+
+Q12. Write a Python Program to Find Sum of Natural Numbers Using Recursion.
+
+Program:
+
+def recur_sum(n):
+   if n <= 1:
+       return n
+   else:
+       return n + recur_sum(n-1)
+num=int(input("\nenter a natural number : "))
+print("the sum is",recur_sum(num))
+
+
+
+
+
+Q13. Write a Python Program to Find Factorial of Number Using Recursion.
+
+Program:
+
+def recur_factorial(n):
+   if n == 1:
+       return n
+   else:
+       return n*recur_factorial(n-1)
+num = int(input("enter a number : "))
+print("the factorial of", num, "is", recur_factorial(num))
+
+
+
+
+
+Q14. Write a Python Program to Convert Decimal to Binary Using Recursion.
+
+Program:
+
+def toBinary(n):
+   if n > 1:
+       toBinary(n//2)
+   print(n % 2,end = '')
+dec = int(input("enter a number : "))
+toBinary(dec)

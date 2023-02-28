@@ -1,0 +1,190 @@
+Q1. Write a program to find out the largest and smallest word in the string “This is an umbrella”.
+
+Program:
+
+string = "this is a umbrella"
+largest = max(string.split(),key=len)
+shortest = min(string.split(), key=len)
+print("largest word in the string is : ",largest)
+print("shortest word in the string is : ", shortest)
+
+
+
+
+
+
+Q2. Write a program to check if a given string is a Palindrome.
+
+Program:
+
+string = input("enter a string : ")
+rev = string[::-1]
+if string==rev:
+  print("\nstring is pallindrome")
+else:
+  print("\nstring is not pallindrome")
+
+
+
+
+
+Q4. Write a program to make a new string with the word “the” deleted in the sentence “This is the student in the class”.
+
+Program:
+
+string = "this is the student in the class"
+string = string.replace("the","")
+print("after removing 'the' from the string")
+print(string)
+
+
+
+
+
+Q5. Given a string of odd length greater 7, return a string made of the middle three chars of a given String.
+
+Program:
+
+str1 = "howareyou"
+l=len(str1)
+midpos = l//2
+print("middle three chars : ",str1[(midpos-1):(midpos+2)])
+
+
+
+
+
+Q6. Given 2 strings, s1 and s2, create a new string by appending s2 in the middle of s1.
+
+Program:
+
+str1 = 'money'
+str2 = 'heist'
+l = len(str1)//2
+str3 = str1[0:l] + str2 + str1[l::] 
+print(str3)
+
+
+
+
+
+Q7. Given 2 strings, s1, and s2 return a new string made of the first, middle and last char each input string.
+
+Program:
+
+str1 = "captain"
+str2 = "america"
+l1 = int(len(str1)/2)
+l2 = int(len(str2)/2)
+str3 = str1[0]+str2[0] +str1[l1]+ str2[l2]+str1[-1]+str2[-1]
+    
+print(str3)
+
+
+
+
+
+
+
+Q8. WAP to Count all lower case, upper case, digits, and special symbols from a given string.
+
+Program:
+
+str = "Capta!n#aMeriCA@"
+sm=0
+cap=0
+sp=0
+for i in range(len(str)):
+  if str[i] >= 'A' and str[i] <= 'Z':
+    cap=cap+1
+  elif str[i] >= 'a' and str[i] <= 'z':
+    sm=sm+1
+  else:
+    sp=sp+1
+    
+print("\ntotal capital characters : ",cap)
+print("\ntotal small characters : ",sm)
+print("\ntotal special characters : ",sp)
+
+
+
+
+
+
+Q9. Find all occurrences of “USA” in given string ignoring the case from the string “These Are absolutely fantastic”.
+
+Program:
+
+str = "These Are absolutely fantastic"
+cnt=0
+for i in str: 
+  if i=="u" or i=="U" or i=="s" or i=="S" or i=="a" or i=="A":
+    cnt=cnt+1
+print("\ntotal 'U S A' present in the string : ",cnt)
+
+
+
+
+
+Q10. Given an input string, count occurrences of all characters within a string.
+
+Program:
+
+input_string = "Hello how are you doing"
+print("the input string is : ",input_string)
+mySet = set(input_string)
+for element in mySet:
+    countOfChar = 0
+    for character in input_string:
+        if character == element:
+            countOfChar += 1
+    print("count of character '{}' is {}".format(element, countOfChar))
+
+
+
+
+Q11. WAP to Reverse a given string.
+
+Program:
+
+string = input("\nenter a string : ")
+print("\nentered string is ",string)
+rev = string[::-1]
+print("\nreverse of entered string : ",rev)
+
+
+
+
+
+Q12. WAP to Remove empty strings from a list of strings.
+
+Program:
+
+ls = ["hello"," ","how","are"," ","you"]
+print(ls)
+ls1=[]
+for i in ls:
+  if i!=" ":
+    ls1.append(i)
+print("\nlist after removing empty strings : \n",ls1)
+
+
+
+
+
+Q13. WAP to Remove special symbols/Punctuation from a given string.
+
+Program:
+
+punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+punc2=""
+string = "hello, how are you?"
+print("string : ",string)
+for i in string:
+  if i not in punctuations:
+    punc2=punc2+i
+print("\nafter removing symbols and punctuations : ")
+print(punc2)
+
+
+

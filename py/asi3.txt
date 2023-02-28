@@ -1,0 +1,79 @@
+Q6. Write a python program to remove repeated elements from a given list without using built-in methods.
+
+Program:
+
+li=[6,4,5,8,7,1,2,3,4,5]
+li2=[]
+print(li)
+for i in li:
+  if i not in li2:
+    li2.append(i)
+print("after removing repeated numbers in the list : ",li2)
+
+
+
+
+Q7. Write a python program to find the longest word in a given sentence.
+
+Program:
+
+sen = input("enter a sentence : ")
+li = list(sen.split())
+long=0
+for i in li:
+  temp=len(i)
+  if temp>long:
+    long=temp
+    ind = li.index(i)
+print("longest word in the sentence : ",li[ind])
+
+
+
+
+Q8. Write a python program to find number of occurrences of given number without using built-in methods.
+
+Program:
+li=[1,2,3,4,5,2,7,3,4,6,7,7,4,10]
+cnt=0
+print(li)
+n=int(input("enter a number to get the occurences of : "))
+for i in li:
+  if i==n:
+    cnt=cnt+1
+print(n ,"has occured",cnt,"times")
+
+
+
+
+Q9. Write a python program to print website suffixes (com , org , net ,in) from this list.
+
+Program:
+
+li1=["bhavik.com","hello.org","qwerty.gov","study.edu"]
+print(li1)
+print("suffixes of websites in the list : ")
+li2=[]
+for i in li1:
+  s=i.split(".")
+  print(s[-1])
+
+
+
+
+Q10. Write a python program to sort a given list of numbers without using sort() function.
+
+Program:
+
+li=[6,4,5,8,7,3,2,9,11,1,10]
+li2=[]
+print("list before sorting : ")
+print(li)
+print("list after sorting : ")
+while li:
+  mn=li[0]
+  for i in li:
+    if i<mn:
+      mn=i
+  li2.append(mn)
+  li.remove(mn)
+print(li2)

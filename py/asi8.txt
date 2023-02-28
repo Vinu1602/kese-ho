@@ -1,0 +1,256 @@
+Q1. Write a python program for Creating Classes and Objects.
+
+Program:
+
+class Car:
+  name = " "
+  gear = 0
+car1 = Car()
+car1.name = "BMW"
+car1.gear = 5
+print(f"name:{car1.name}\ngear:{car1.gear}")
+
+
+
+
+
+Q2. Write a python program to demonstrate the Constructor Method.
+
+Program:
+
+class Addition:
+    first = 0
+    second = 0
+    answer = 0
+    def __init__(self,a,b):
+        self.first = a
+        self.second = b
+    def display(self):
+        print("First number is: "+ str(self.first))
+        print("Second number is: "+ str(self.second))
+        print("Addition of two numbers is: "+ str(self.answer))
+    def calculate(self):
+        self.answer = self.first + self.second
+obj1 = Addition(30,24)
+obj1.calculate()
+obj1.display()
+
+
+
+
+
+
+
+Q3. Write a python program for creating Classes with Multiple Objects.
+
+Program:
+
+class Person:
+    name = ""
+    gender = ""
+    profession = ""
+    def __init__(self,name,gender,profession):
+        self.name = name
+        self.gender = gender
+        self.profession = profession
+    def show(self):
+        print('Name:',self.name,' Gender:',self.gender,' Profession:',self.profession)
+    def work(self):
+        print(self.name,'working as',self.profession)
+obj1 = Person("John","Male","Admin")
+obj2 = Person("James","Male","Contractor")
+obj1.show()
+obj2.show()
+obj1.work()
+obj2.work()
+
+
+
+
+
+Q4. Write a python program to demonstrate the Class Attributes versus Data Attributes.
+
+Program:
+
+class Person:
+    uid = 0
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+        Person.uid+=1
+    def display(self):
+        print('Person UID:',self.uid,'Name:',self.name,'Age:',self.age)
+Per1 = Person("Jane",22)
+Per1.display()
+Per2 = Person("John",23)
+Per2.display()
+
+
+
+
+
+Q5. Write a python program to demonstrate Encapsulation.
+
+Program:
+
+class Base:
+    def __init__(self):
+        self.num = 3
+class Derived(Base):
+    def __init__(self):
+        Base.__init__(self)
+        print("Calling protected member of base class: ",
+              self.num)
+        self.num = 4
+        print("Calling modified protected member of derived class: ",
+              self.num)
+obj1 = Derived()
+obj2 = Base()
+print("Accessing protected member of obj1: ", obj1.num)
+print("Accessing protected member of obj2: ", obj2.num)
+
+
+
+
+
+Q6. Write a python program to demonstrate Inheritance.
+
+Program:
+
+class Animal:  
+    def speak(self):  
+        print("Animal Communicating")  
+class Dog(Animal):  
+    def bark(self):  
+        print("Dog Barking")
+d = Dog()  
+d.speak()  
+d.bark()
+
+
+
+
+
+Q7. Write a python program to demonstrate Polymorphism.
+
+Program:
+
+class Birds:  
+    def intro(self):  
+        print("There are multiple types of birds in the world.")  
+    def flight(self):  
+        print("Many of these birds can fly but some cannot.")  
+class sparrow(Birds):  
+    def flight(self):  
+        print("Sparrows are the bird which can fly.")  
+class ostrich(Birds):  
+    def flight(self):  
+        print("Ostriches are the birds which cannot fly.")  
+obj_birds = Birds()  
+obj_spr = sparrow()  
+obj_ost = ostrich()  
+obj_birds.intro()  
+obj_birds.flight()  
+obj_spr.intro()  
+obj_spr.flight()  
+obj_ost.intro()  
+obj_ost.flight()
+
+
+
+
+
+Q10. Write a Python program to display the various Date Time formats
+a) Current date and time
+b) Current year
+c) Month of year
+d) Week number of the year
+e) Weekday of the week
+f) Day of year
+g) Day of the month
+h) Day of week.
+
+Program:
+
+import time
+import datetime
+print("Current date and time: " , datetime.datetime.now())
+print("Current year: ", datetime.date.today().strftime("%Y"))
+print("Month of year: ", datetime.date.today().strftime("%B"))
+print("Week number of the year: ", datetime.date.today().strftime("%W"))
+print("Weekday of the week: ", datetime.date.today().strftime("%w"))
+print("Day of year: ", datetime.date.today().strftime("%j"))
+print("Day of the month : ", datetime.date.today().strftime("%d"))
+print("Day of week: ", datetime.date.today().strftime("%A"))
+
+
+
+
+
+Q11. Write a Python program to determine whether a given year is a leap year.
+
+Program:
+
+def CheckLeap(Year):  
+  if((Year % 400 == 0) or  
+     (Year % 100 != 0) and  
+     (Year % 4 == 0)):   
+    print("entered year is a leap Year");  
+  else:  
+    print ("entered year is not a leap Year")  
+Year = int(input("enter the year : "))  
+CheckLeap(Year)
+
+
+
+
+
+Q12. Write a Python program to convert a string to datetime.
+
+Program:
+
+from datetime import datetime
+my_date_string = "Jan 18 2010 10:00PM"
+datetime_object = datetime.strptime(my_date_string, '%b %d %Y %I:%M%p')
+print(type(datetime_object))
+print(datetime_object)
+
+
+
+
+
+Q13. Write a Python program to subtract five days from current.
+
+Program:
+
+from datetime import date, timedelta
+dt = date.today() - timedelta(6)
+print("Current Date : ",date.today())
+print("6 days before Current Date : ",dt)
+
+
+
+
+
+Q14. Write a Python program to convert unix timestamp string to readable date. 
+
+Program:
+
+import datetime
+timestamp = datetime.datetime.fromtimestamp(1235220000)
+print(timestamp.strftime('%Y-%m-%d %H:%M:%S'))
+
+
+
+
+Q15. Write a Python program to print yesterday, today, tomorrow. 
+
+Program:
+
+import datetime 
+today = datetime.date.today()
+yesterday = today - datetime.timedelta(days = 1)
+tomorrow = today + datetime.timedelta(days = 1) 
+print('Yesterday : ',yesterday)
+print('Today : ',today)
+print('Tomorrow : ',tomorrow)

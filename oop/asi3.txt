@@ -1,0 +1,701 @@
+Q8. Define a class Animal with  their basic features as class members. Create two derived classes from Animal named 
+herbivores and  Carnivores (type) with their own features too.  Accept name of animal with type  and  display all the related information.
+
+Program:
+
+#include<iostream>
+using namespace std;
+class Animal
+{
+    protected:
+    char name[20];
+    char type[20];
+    int legs;
+    char color[20];
+    public:
+    void getanimal()
+    {
+        cout<<"\nenter animal name : ";
+        cin>>name;
+        cout<<"\nenter animal type : ";
+        cin>>type;
+        cout<<"\nenter total number of legs : ";
+        cin>>legs;
+        cout<<"\nenter animal color : ";
+        cin>>color;
+    }
+};
+class Herbivores : public Animal
+{
+    protected:
+    char diet[20];
+    public:
+    void getdiet()
+    {
+        cout<<"\nwhat does this animal eat : ";
+        cin>>diet;
+    }
+    void display()
+    {
+        cout<<"\nanimal name : "<<name;
+        cout<<"\nanimal type : "<<type;
+        cout<<"\nnumber of legs : "<<legs;
+        cout<<"\nanimal color : "<<color;
+        cout<<"\nanimal diet : "<<diet;
+    }
+};
+class Carnivorous : public Animal
+{
+    protected:
+    char diet[20];
+    public:
+    void getdiet()
+    {
+        cout<<"\nwhat does this animal eat : ";
+        cin>>diet;
+    }
+    void display()
+    {
+        cout<<"\nanimal name : "<<name;
+        cout<<"\nanimal type : "<<type;
+        cout<<"\nnumber of legs : "<<legs;
+        cout<<"\nanimal color : "<<color;
+        cout<<"\nanimal diet : "<<diet;
+    }
+};
+int main()
+{
+    Herbivores h;
+    Carnivorous c;
+    cout<<"\nherbivores animal :\n";
+    h.getanimal();
+    h.getdiet();
+    h.display();
+    cout<<"\n\ncarnivorous animal :\n";
+    c.getanimal();
+    c.getdiet();
+    c.display();
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+Q9. Write a program to derive a class rectangle from base class shape using single inheritance.
+
+Program:
+#include<iostream>
+using namespace std;
+class Shape
+{
+    public:
+    void shape()
+    {
+        cout<<"\ninside class Shape";
+    }
+};
+class Rectangle : public Shape
+{
+    public:
+    void rec()
+    {
+        cout<<"\ninside class Rectangle";
+    }
+};
+int main()
+{
+    Rectangle r;
+    r.shape();
+    r.rec();
+    return 0;
+}
+
+
+
+
+
+
+Q10. Define a class containing operator function to overload unary minus (‘-‘) operator.
+
+Program:
+#include<iostream>
+using namespace std;
+class Numbers
+{
+    int x,y,z;
+    public:
+    void accept()
+    {
+            cout<<"\nenter three numbers :";
+            cout<<"\nfirst number : ";
+            cin>>x;
+            cout<<"\nsecond number : ";
+            cin>>y;
+            cout<<"\nthree number : ";
+            cin>>z;
+    }
+    void display()
+    {
+        cout<<x<<" "<<y<<" "<<z;
+    }
+    void operator-()
+    {
+        x=-x;
+        y=-y;
+        z=-z;
+    }
+};
+int main()
+{
+    Numbers num;
+    num.accept();
+    cout<<"\nentered numbers are :\n";
+    num.display();
+    -num;    
+    cout<<"\nnegated numbers are : ";
+    num.display();
+    return 0;
+}
+
+
+
+
+
+Q11. Define base class Student with Roll_No,Name , Marks1 , Marks2 , Marks3 as data members. 
+Define Sports class with SportName , ParticipationLevel , Achievement as data members and also find  sports grade . 
+Inherit Student  Class in Sports Class to find final grade of  five students.  (District/Gold -3   District/Silver – 2 District/Bronze– 1 State/Gold - 6  State /Silver –5    State /Bronze – 4  National/Gold - 9  National/Silver .
+
+Program:
+
+#include<iostream>
+using namespace std;
+class Student
+{
+    protected:
+    int roll;
+    char name[20];
+    int mark1;
+    int mark2;
+    int mark3;
+    int finalgrade;
+    public:
+    void getstudent()
+    {
+        cout<<"\nenter student roll number : ";
+        cin>>roll;
+        cout<<"\nenter student name : ";
+        cin>>name;
+    }
+    void getmarks()
+    {
+        cout<<"\nenter mark of subject 1 : ";
+        cin>>mark1;
+        cout<<"\nenter mark of subject 2 : ";
+        cin>>mark2;
+        cout<<"\nenter mark of subject 3 : ";
+        cin>>mark3;
+    }
+    void putmarks()
+    {
+        finalgrade=mark1+mark2+mark3;
+        cout<<"\n\nstudent detail : \n";
+        cout<<"\nstudent roll number : "<<roll;
+        cout<<"\nstudent name : "<<name;
+        cout<<"\nfinal grade : "<<finalgrade;
+    }
+};
+class Sport : public Student
+{
+    protected:
+    char sportname[20];
+    char partlvl[20];
+    char achi[20];
+    int sportgrade=0;
+    public:
+    void getsports()
+    {
+        cout<<"\nenter sport name : ";
+        cin>>sportname;
+        cout<<"\nenter participation level : ";
+        cin>>partlvl;
+        cout<<"\nenter achievement : ";
+        cin>>achi;
+    }
+    int getsportsgrade()
+    {
+        if((partlvl=="district")&&(achi=="gold"))
+        {
+            sportgrade=3;
+        }
+        else if((partlvl=="district")&&(achi=="silver"))
+        {
+            sportgrade=2;
+        }
+        else if((partlvl=="district")&&(achi=="bronze"))
+        {
+            sportgrade=1;
+        }
+        else if((partlvl=="state")&&(achi=="gold"))
+        {
+            sportgrade=6;
+        }
+        else if((partlvl=="state")&&(achi=="silver"))
+        {
+            sportgrade=5;
+        }
+        else if((partlvl=="state")&&(achi=="bronze"))
+        {
+            sportgrade=4;
+        }
+        else if((partlvl=="national")&&(achi=="gold"))
+        {
+            sportgrade=9;
+        }
+        else if((partlvl=="national")&&(achi=="silver"))
+        {
+            sportgrade=8;
+        }
+        else if((partlvl=="national")&&(achi=="bronze"))
+        {
+            sportgrade=7;
+        }
+        return sportgrade;
+    }
+    void putsports()
+    {
+        cout<<"\nsport name : "<<sportname;
+        cout<<"\nparticipation level : "<<partlvl;
+        cout<<"\nachievement : "<<achi;
+        cout<<"\nsportgrade : "<<sportgrade;
+    }
+};
+int main()
+{
+    int i;
+    Sport s;
+    for(i=0;i<5;i++)
+    {
+        cout<<"\n\nstudent "<<i+1<<" :\n";
+        s.getstudent();
+        s.getmarks();
+        s.getsports();
+        s.getsportsgrade();
+        s.putmarks();
+        s.putsports();
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+Q12. Write C++  program to read the base class Information i.e. employee name, code, designation. And the derived class contains years of experience and age.  Design a virtual base class for  the item employee name and code.
+
+Program:
+#include<iostream>
+using namespace std;
+class Information
+{
+    protected:
+    char ename[20];
+    int code;
+    char desig[20];
+    public:
+    void getinfo()
+    {
+        cout<<"\nenter employee name : ";
+        cin>>ename;
+        cout<<"\nenter code : ";
+        cin>>code;
+        cout<<"\nenter designation : ";
+        cin>>desig;
+    }
+    void putinfo()
+    {
+        cout<<"\nemployee name : "<<ename;
+        cout<<"\nemployee code : "<<code;
+        cout<<"\nemployee designation : "<<desig;
+    }
+};
+class Employee : virtual public Information
+{
+    protected:
+    int expe;
+    int age;
+    public:
+    void getexpandage()
+    {
+        cout<<"\nenter total years of experience : ";
+        cin>>expe;
+        cout<<"\nenter age : ";
+        cin>>age;
+    }
+    void putexpandage()
+    {
+        cout<<"\ntotal years of experience : "<<expe;
+        cout<<"\nemployee age : "<<age;
+    }
+};
+int main()
+{
+    Employee e;
+    e.getinfo();
+    e.getexpandage();
+    e.putinfo();
+    e.putexpandage();
+    return 0;
+}
+
+
+
+
+
+Q13. Assume  that the company markets books and audio tapes prepate a class publication having numbers, title and price from this class derive two classes 1. class book which adds page count and 2. class tape which adds playing time in minutes. Further add a base class that hold sales from both books and tape. Write a program in c++ that display all books having pagecount more than 100 and all cassettes that play for more than 60 minutes.
+Program:
+#include<iostream>
+using namespace std;
+class Publication
+{
+    protected:
+    char title[20];
+    float price;
+    public:
+    void getdetails()
+    {
+        cout<<"\nenter title : ";
+        cin>>title;
+        cout<<"\nenter price : ";
+        cin>>price;
+    }
+    void putdetails()
+    {
+        cout<<"\ntitle : "<<title;
+        cout<<"\nprice : "<<price;
+    }
+};
+class Book : public Publication
+{
+    protected:
+    int pg;
+    public:
+    void getpgcnt()
+    {
+        cout<<"\nenter total number of pages in the book : ";
+        cin>>pg;
+    }
+    void putpgcnt()
+    {
+        if(pg<100)
+        {
+            printf("\n");
+        }
+        else
+        {
+            cout<<"\ntotal number of pages in the book : "<<pg;
+        }
+    }
+};
+class Tape : public Publication
+{
+    protected:
+    int dur;
+    public:
+    void getdur()
+    {
+        cout<<"\nenter duration of tape in minutes : ";
+        cin>>dur;
+    }
+    void putdur()
+    {
+        if(dur<60)
+        {
+            cout<<"\n";
+        }
+        else
+        {
+            cout<<"\ntape duration : "<<dur<<" minutes";
+        }
+    }
+};
+int main()
+{
+    int n,i;
+    Book b;
+    Tape t;
+    cout<<"\nhow many details do you want to enter : ";
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cout<<"\nfor book";
+        b.getdetails();
+        b.getpgcnt();
+        cout<<"\nfor tape";
+        t.getdetails();
+        t.getdur();
+    }
+    for(i=0;i<n;i++)
+    {
+        b.putdetails();
+        b.putpgcnt();
+        t.putdetails();
+        t.putdur();
+    }
+    return 0;
+}
+
+
+
+
+
+
+Q14. Write a class ‘Point’ with x and y coordinates as data members. Derive two classes ‘Line’ and  Circle’ from ‘Point’ with appropriate data members. Derive a class ‘Triangle’ from class ‘Line’. Implement read () and
+draw () member functions for all the above classes.
+
+Program:
+
+#include<iostream>
+using namespace std;
+class Point
+{
+    protected:
+    int x;
+    int y;
+};
+class Line : public Point
+{
+    public:
+    void read()
+    {
+        cout<<"\nenter x in line : ";
+        cin>>x;
+        cout<<"\nenter y in line : ";
+        cin>>y;
+    }
+    void draw()
+    {
+        cout<<"\ninside line";
+        cout<<"\nx in line : "<<x;
+        cout<<"\ny in line : "<<y;
+    }
+};
+class Circle : public Point
+{
+    public:
+    void read()
+    {
+        cout<<"\nenter x in circle : ";
+        cin>>x;
+        cout<<"\nenter y in circle : ";
+        cin>>y;
+    }
+    void draw()
+    {
+        cout<<"\ninside circle";
+        cout<<"\nx in circle : "<<x;
+        cout<<"\ny in circle : "<<y;
+    }
+};
+class Triangle : public Line
+{
+    public:
+    void read()
+    {
+        cout<<"\nenter x in triangle : ";
+        cin>>x;
+        cout<<"\nenter y in triangle : ";
+        cin>>y;
+    }
+    void draw()
+    {
+        cout<<"\ninside triangle";
+        cout<<"\nx in triangle : "<<x;
+        cout<<"\ny in triangle : "<<y;
+    }
+};
+int main()
+{
+    Line l;
+    Circle c;
+    Triangle t;
+    l.read();
+    l.draw();
+    c.read();
+    c.draw();
+    t.read();
+    t.draw();
+    return 0;
+}
+
+
+
+
+
+Q15. Create a class FLOAT that contains one float data member. Overload all the four arithmetic operators so that they operate on the objects of FLOAT.
+
+Program:
+#include <iostream>
+using namespace std;
+class FLOAT 
+{
+    public:
+    float x;
+    public:
+    FLOAT(float x) : x(x) {}
+
+    friend FLOAT operator+(const FLOAT &f1, const FLOAT &f2);
+    friend FLOAT operator-(const FLOAT &f1, const FLOAT &f2);
+    friend FLOAT operator*(const FLOAT &f1, const FLOAT &f2);
+    friend FLOAT operator/(const FLOAT &f1, const FLOAT &f2);
+};
+FLOAT operator+(const FLOAT &f1, const FLOAT &f2) 
+{
+    return FLOAT(f1.x + f2.x);
+}
+
+FLOAT operator-(const FLOAT &f1, const FLOAT &f2) 
+{
+    return FLOAT(f1.x - f2.x);
+}
+
+FLOAT operator*(const FLOAT &f1, const FLOAT &f2) 
+{
+    return FLOAT(f1.x * f2.x);
+}
+
+FLOAT operator/(const FLOAT &f1, const FLOAT &f2) 
+{
+    return FLOAT(f1.x / f2.x);
+}
+
+int main() 
+{
+    FLOAT f1(1.5), f2(2.5);
+    cout << (f1 + f2).x<<endl;
+    cout << (f1 - f2).x<<endl;
+    cout << (f1 * f2).x<<endl;
+    cout << (f1 / f2).x<<endl;
+    return 0;
+}
+
+
+
+
+Q16. Create a class MAT of size m*n. Define all possible matrix operations for MAT type objects.
+
+Program:
+#include<iostream>
+using namespace std;
+class MAT
+{
+    protected:
+    int a[2][2];
+    public:
+    void accept()
+    {
+        cout<<"\nenter 4 elements : ";
+        for(int i=0;i<2;i++)
+        {
+            for(int j=0;j<2;j++)
+            {
+                cin>>a[i][j];
+            }
+        }
+    }
+    void display()
+    {
+        for(int i=0;i<2;i++)
+        {
+            cout<<endl;
+            for(int j=0;j<2;j++)
+            cout<<"  "<<a[i][j];
+        }
+    }
+    MAT operator+(MAT M2)
+    {
+        MAT M3;
+        for(int i=0;i<2;i++)
+        {
+            for(int j=0;j<2;j++)
+            {
+                M3.a[i][j]=a[i][j]+M2.a[i][j];
+            }
+        }
+        return M3;
+    }
+    MAT operator*(MAT M2)
+    {
+        MAT M3;
+        for(int i=0;i<2;i++)
+        {
+            for(int j=0;j<2;j++)
+            {
+                M3.a[i][j]=0;
+                for(int k=0;k<2;k++)
+                {
+                    M3.a[i][j]=(a[i][k]*M2.a[k][j])+M3.a[i][j];
+                }
+            }
+        }
+        return M3;
+    }
+};
+int main()
+{
+    MAT M1,M2,M3;
+    cout<<"\nenter matrix M1 value : ";
+    M1.accept();
+    cout<<"\nenter matrix M2 value : ";
+    M2.accept();
+    M3=M1+M2;
+    cout<<"\naddition of M1+M2 : ";
+    M3.display();
+    M3=M1*M2;
+    cout<<"\nmultiplication of M1*M2 : ";
+    M3.display();
+    return 0;
+}
+
+
+
+
+
+
+
+Q17. Write a C++ program to concatenate two Strings using operator + function.
+
+Program:
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+class AddString 
+{
+    public:
+	char s1[20], s2[20];
+	AddString(char str1[], char str2[])
+	{
+		strcpy(this->s1, str1);
+		strcpy(this->s2, str2);
+	}
+	void operator+()
+	{
+		cout<<"\nconcatenation : "<<strcat(s1,s2);
+	}
+};
+int main()
+{
+	char str1[] = "hello";
+	char str2[] = "world";
+	AddString a1(str1, str2);
+	+a1;
+	return 0;
+}
